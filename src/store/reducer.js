@@ -3,31 +3,30 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-    if(action.type === 'INCREMENT') {
-        return {
-            ...state,
-            counter: state.counter + 1
-        }
+    switch (action.type) {
+        case 'INCREMENT':
+            return {
+                ...state,
+                counter: state.counter + 1
+            }
+        case 'DECREMENT':
+            return {
+                ...state,
+                counter: state.counter - 1
+            }
+        case 'ADDITION':
+            return {
+                ...state,
+                counter: state.counter + action.value
+            }
+        case 'SUBTRACTION':
+            return {
+                ...state,
+                counter: state.counter - action.value
+            }
+        default:
+            return state;
     }
-    if(action.type === 'DECREMENT') {
-        return {
-            ...state,
-            counter: state.counter - 1
-        }
-    }
-    if(action.type === 'ADDITION') {
-        return {
-            ...state,
-            counter: state.counter + action.value
-        }
-    }
-    if(action.type === 'SUBTRACTION') {
-        return {
-            ...state,
-            counter: state.counter - action.value
-        }
-    }
-    return state;
 }
 
 export default reducer;
