@@ -3,7 +3,7 @@ import { connect } from 'react-redux'; // a function that returns a HOC, the ret
 
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
-import * as actionCreators from '../../store/actions/actions';
+import * as actionCreators from '../../store/actions/index';
 
 class Counter extends Component {
     // state = {
@@ -36,7 +36,7 @@ class Counter extends Component {
                 <CounterControl label="Add 5" clicked={() => this.props.onAddCounter(5)} />
                 <CounterControl label="Subtract 5" clicked={() => this.props.onSubtractCounter(5)} />
                 <hr />
-                <button onClick={() => this.props.onSotreResult(this.props.ctr)}>Store Result</button>
+                <button onClick={() => this.props.onStoreResult(this.props.ctr)}>Store Result</button>
                 <ul>
                     {this.props.storedResults.map(storedResult => (
                         <li onClick={() => this.props.onDeleteResult(storedResult.id)} key={storedResult.id}>{storedResult.value}</li>
@@ -62,7 +62,7 @@ const mapDispatchToProps = dispatch => {
         onDecrementCounter: () => dispatch(actionCreators.decrement()),
         onAddCounter: (value) => dispatch(actionCreators.addition(value)),
         onSubtractCounter: (value) => dispatch(actionCreators.subtraction(value)),
-        onSotreResult: (result) => dispatch(actionCreators.storeResult(result)),
+        onStoreResult: (result) => dispatch(actionCreators.storeResult(result)),
         onDeleteResult: (resultElId) => dispatch(actionCreators.deleteResult(resultElId)),
     };
 };
