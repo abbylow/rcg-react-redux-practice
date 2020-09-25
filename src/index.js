@@ -7,9 +7,7 @@ import thunk from 'redux-thunk';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-// import counterReducer from './store/reducers/counter';
 import counterReducer from './store/reducers/counter/reducer';
-// import resultReducer from './store/reducers/result';
 import resultReducer from './store/reducers/result/reducer';
 
 // combineReducers => takes Javascript object and combine
