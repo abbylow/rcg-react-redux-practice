@@ -7,7 +7,6 @@ import thunk from 'redux-thunk';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-// import reducer from './store/reducer';
 import counterReducer from './store/reducers/counter';
 import resultReducer from './store/reducers/result';
 
@@ -17,6 +16,7 @@ const rootReducer = combineReducers({
     res: resultReducer
 });
 
+// self-made middleware
 const logger = store => {
     return next => {
         return action => {
@@ -36,9 +36,6 @@ const store = createStore(
     composeEnhancers(
         applyMiddleware(logger, thunk)
     ));
-// const store = createStore(rootReducer, applyMiddleware(logger));
-
-// const store = createStore(reducer);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
