@@ -1,9 +1,10 @@
-import * as actionTypes from '../actions';
+import * as actionTypes from '../actions/actions';
 
 const initialState = {
     counter: 0,
 }
 
+// Note: we cannot execute asynchronous code in here (need to use middleware)
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.INCREMENT:

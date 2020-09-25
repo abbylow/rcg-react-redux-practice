@@ -3,7 +3,7 @@ import { connect } from 'react-redux'; // a function that returns a HOC, the ret
 
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
-import * as actionTypes from '../../store/actions';
+import * as actionCreators from '../../store/actions/actions';
 
 class Counter extends Component {
     // state = {
@@ -58,12 +58,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onIncrementCounter: () => dispatch({ type: actionTypes.INCREMENT }),
-        onDecrementCounter: () => dispatch({ type: actionTypes.DECREMENT }),
-        onAddCounter: (value) => dispatch({ type: actionTypes.ADDITION, value }),
-        onSubtractCounter: (value) => dispatch({ type: actionTypes.SUBTRACTION, value }),
-        onSotreResult: (result) => dispatch({ type: actionTypes.STORE_RESULT, result }),
-        onDeleteResult: (resultElId) => dispatch({ type: actionTypes.DELETE_RESULT, resultElId }),
+        onIncrementCounter: () => dispatch(actionCreators.increment()),
+        onDecrementCounter: () => dispatch(actionCreators.decrement()),
+        onAddCounter: (value) => dispatch(actionCreators.addition(value)),
+        onSubtractCounter: (value) => dispatch(actionCreators.subtraction(value)),
+        onSotreResult: (result) => dispatch(actionCreators.storeResult(result)),
+        onDeleteResult: (resultElId) => dispatch(actionCreators.deleteResult(resultElId)),
     };
 };
 

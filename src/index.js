@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux'; // to connect between react and redux
+import thunk from 'redux-thunk';
 
 import './index.css';
 import App from './App';
@@ -33,7 +34,7 @@ const store = createStore(
     rootReducer,
     /* preloadedState, */
     composeEnhancers(
-        applyMiddleware(logger)
+        applyMiddleware(logger, thunk)
     ));
 // const store = createStore(rootReducer, applyMiddleware(logger));
 
