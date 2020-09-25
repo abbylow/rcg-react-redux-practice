@@ -8,8 +8,10 @@ export const saveResult = (result) => {
 export const storeResult = (result) => {
     // return a function, dispatch argument is provided by redux-thunk
     // middleware blocks the old action and dispatch the action again
-    return function (dispatch) {
+    return function (dispatch, getState) {
         setTimeout(() => {
+            // const oldCounter = getState().ctr.counter; //can get the state from redux, but dont overuse it, instead can pass the needed variables from action creator
+            // console.log(oldCounter);
             dispatch(saveResult(result))
         }, 2000);
     }
